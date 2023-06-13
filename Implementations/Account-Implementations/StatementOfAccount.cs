@@ -7,10 +7,11 @@ using System.Threading.Tasks;
 using System.Transactions;
 using MavicsBank.Models.Account_Model;
 using MavicsBank.Models.Customer_Model;
+using MavicsBank.Interfaces.Account_Interface;
 
 namespace MavicsBank.Implementations.Account_Implementations
 {
-    internal class StatementOfAccount
+    internal class StatementOfAccount : IStatementOfAccount
     {
         public void MyStatementOfAccount(Customer loggedInCustomer)
         {

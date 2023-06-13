@@ -19,6 +19,8 @@ services.AddScoped<ICheckBalance, CheckBalance>();
 services.AddScoped<IAccountDetails, AccountDetails>();
 services.AddScoped<IAccHelper, Acc_Helper>();
 services.AddSingleton<HomePage>();
+services.AddScoped<IStatementOfAccount, StatementOfAccount>();
+
 
 var serviceProvider = services.BuildServiceProvider();
 var home =  serviceProvider.GetRequiredService<HomePage>();
