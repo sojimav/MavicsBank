@@ -10,10 +10,17 @@ using System.Security.AccessControl;
 using MavicsBank.Interfaces.Account_Interface;
 
 
+
 namespace MavicsBank.Implementations.Account_Implementations
 {
     internal class Deposit : IDeposit
     {
+        private readonly IAccHelper _accHelper;
+        public Deposit(IAccHelper accHelper)
+        {
+            _accHelper = accHelper;
+        }
+
         public void DepositMoney(Customer loggedInCustomer)
         {  
             
@@ -31,11 +38,23 @@ namespace MavicsBank.Implementations.Account_Implementations
           var AllAccountsOfLoggedInPerson = accounts.Where(accRows => accRows.Id == loggedInCustomer.Id).ToList();
 
             var FetchRowToUpdate = AllAccountsOfLoggedInPerson.FirstOrDefault(x => x.AccountNo == getAccoutNo);
-
-            if(FetchRowToUpdate != null)
+            Transactions recordTransactions;
+            if (FetchRowToUpdate != null)
             {               
                 FetchRowToUpdate.AccountBal += amount ;
                 Console.WriteLine($"{amount} has been successfully deposited into your account : {getAccoutNo}");
+                 recordTransactions = new Transactions
+                { 
+                    Id = loggedInCustomer.Id,
+                    Name = loggedInCustomer.FullName,
+                    TimeOfTransaction = DateTime.Now,
+                    Description = "deposit",
+                    Amount = amount,
+                    Balance = FetchRowToUpdate.AccountBal
+
+                };
+                _accHelper.CreateTransactionFile(recordTransactions);
+
             }
             else
             {
@@ -54,6 +73,7 @@ namespace MavicsBank.Implementations.Account_Implementations
             }
 
            
+
         }
 
     }

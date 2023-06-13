@@ -5,10 +5,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MavicsBank.Interfaces.Account_Interface;
 
 namespace MavicsBank.Implementations.Account_Implementations
 {
-    internal class Acc_Helper
+    internal class Acc_Helper : IAccHelper
     {
         public int AccountNo()
         {
@@ -86,6 +87,17 @@ namespace MavicsBank.Implementations.Account_Implementations
             }
 
             return AccountdetailsFromFile;
+        }
+
+
+        public void CreateTransactionFile(Transactions transactions)
+        {
+            using (StreamWriter trans = new StreamWriter("Transaction.txt", true))
+            {
+                trans.WriteLine($"|{transactions.Id}|{transactions.Name}|{transactions.TimeOfTransaction} | {transactions.Description} | {transactions.Amount} | {transactions.Balance} |");
+            }
+
+            Console.WriteLine("Transaction sucessfully recorded!");
         }
     }
 }

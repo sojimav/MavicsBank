@@ -24,7 +24,7 @@ namespace MavicsBank.Implementations.Account_Implementations
 
           
             Console.WriteLine("::::::::::::::::::: ACCOUNT BALANCE :::::::::::::::::::::::::::::::::");
-
+            Console.WriteLine();
             if(FetchRowToCheck != null)
             {
               Console.WriteLine($"Your account balance is: {FetchRowToCheck.AccountBal}");

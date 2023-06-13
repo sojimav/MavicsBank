@@ -32,16 +32,14 @@ namespace MavicsBank
                 {
                     if(collectInput == "1")
                     {
-                        _reg.RegisterCustomer();
+                       _reg.RegisterCustomer();
                         MyHomePage();
                     }
                     else if(collectInput == "2")
                     {
                         _login.LogMeIn();
                     }
-                    
-                       
-                    
+                                       
                    // Selection(collectInput);
                 }
 

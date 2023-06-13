@@ -12,6 +12,11 @@ namespace MavicsBank.Implementations.Account_Implementations
 {
     internal class Withdraw : IWithdraw
     {
+        private readonly IAccHelper _accHelper;
+        public Withdraw(IAccHelper helper)
+        {
+            _accHelper = helper;
+        }
         public void WithdrawMoney(Customer loggedInCustomer)
         {
             List<Account> accounts = Acc_Helper.ReadFromAccountFile("Accounts.txt");
@@ -36,7 +41,16 @@ namespace MavicsBank.Implementations.Account_Implementations
                 {
                     FetchRowToUpdate.AccountBal -= amount;
                     Console.WriteLine($"{amount} has been successfully withdrawn from your account : {getAccoutNo}");
-                    //Console.WriteLine($"Transaction has been update for {loggedInCustomer.FullName} in file");
+                    var transaction = new Transactions
+                    {
+                        Id = loggedInCustomer.Id,
+                        Name = loggedInCustomer.FullName,
+                        TimeOfTransaction = DateTime.Now,
+                        Description = "withdrawal",
+                        Amount = amount,
+                        Balance = FetchRowToUpdate.AccountBal
+                    };
+                    _accHelper.CreateTransactionFile(transaction); 
                 }
                 
                 else

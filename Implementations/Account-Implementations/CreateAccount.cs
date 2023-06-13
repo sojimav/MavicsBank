@@ -11,6 +11,10 @@ namespace MavicsBank.Implementations.Account_Implementations
 {
     internal class CreateAccount : Acc_Helper, ICreateAccount
     {
+        public CreateAccount()
+        {
+
+        }
         public void CreateNewAccount(Customer loggedInCustomer)
         {
             var id = loggedInCustomer.Id;
@@ -26,6 +30,8 @@ namespace MavicsBank.Implementations.Account_Implementations
                 writer.WriteLine($"|  {account.Id,-12} | {account.Name,-16} | {account.AccountNo,-18} | {account.AccountType,-18} | {account.AccountBal,-10} |\n\n");
             }
             Console.WriteLine($" Account for {fullname} with Account no: {accNo} has been added to File.");
+
+
         }
 
 

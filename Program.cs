@@ -17,8 +17,9 @@ services.AddScoped<IWithdraw, Withdraw>();
 services.AddScoped<ITransfer, Transfer>();
 services.AddScoped<ICheckBalance, CheckBalance>();
 services.AddScoped<IAccountDetails, AccountDetails>();
-
+services.AddScoped<IAccHelper, Acc_Helper>();
 services.AddSingleton<HomePage>();
+
 var serviceProvider = services.BuildServiceProvider();
 var home =  serviceProvider.GetRequiredService<HomePage>();
 

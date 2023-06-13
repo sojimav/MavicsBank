@@ -11,6 +11,11 @@ namespace MavicsBank.Implementations.Account_Implementations
 {
     internal class Transfer : ITransfer
     {
+        private readonly IAccHelper _accHelper;
+        public Transfer(IAccHelper accHelper)
+        {
+            _accHelper = accHelper;
+        }
         public void TransferMoney(Customer loggedInCustomer)
         {
             List<Account> accounts = Acc_Helper.ReadFromAccountFile("Accounts.txt");
@@ -36,7 +41,25 @@ namespace MavicsBank.Implementations.Account_Implementations
                 {
                     giver.AccountBal -= amountToTransfer;
                     receiver.AccountBal += amountToTransfer;
-
+                    var givertransactionRecords = new Transactions
+                    {
+                        Id = loggedInCustomer.Id,
+                        Name = giver.Name,
+                        TimeOfTransaction = DateTime.Now,
+                        Description = $"transfered to {receiver.Name}",
+                        Amount = amountToTransfer,
+                        Balance = giver.AccountBal
+                    };
+                     _accHelper.CreateTransactionFile(givertransactionRecords);
+                    var receivertransactionRecords = new Transactions
+                    {
+                        Id = receiver.Id,
+                        Name = receiver.Name,
+                        TimeOfTransaction = DateTime.Now,
+                        Description = $" received from {giver.Name}",
+                        Amount = amountToTransfer,
+                        Balance = receiver.AccountBal
+                    };
                     Console.WriteLine($"{amountToTransfer} has been successfully transfered to {receiver.Name}");
                 }
                 else
