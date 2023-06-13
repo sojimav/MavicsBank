@@ -1,6 +1,6 @@
-|  15979866     | Ajibade Victor   | 1920492989         | current            | 8040       |
+|  15979866     | Ajibade Victor   | 1920492989         | current            | 10040      |
 
 
-|  13349080     | Theo Elemu       | 1028665202         | savings            | 12000      |
+|  13349080     | Theo Elemu       | 1028665202         | savings            | 10000      |
 
 

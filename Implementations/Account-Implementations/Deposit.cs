@@ -38,12 +38,12 @@ namespace MavicsBank.Implementations.Account_Implementations
           var AllAccountsOfLoggedInPerson = accounts.Where(accRows => accRows.Id == loggedInCustomer.Id).ToList();
 
             var FetchRowToUpdate = AllAccountsOfLoggedInPerson.FirstOrDefault(x => x.AccountNo == getAccoutNo);
-            Transactions recordTransactions;
+
             if (FetchRowToUpdate != null)
             {               
                 FetchRowToUpdate.AccountBal += amount ;
                 Console.WriteLine($"{amount} has been successfully deposited into your account : {getAccoutNo}");
-                 recordTransactions = new Transactions
+                Transactions recordTransactions = new Transactions
                 { 
                     Id = loggedInCustomer.Id,
                     Name = loggedInCustomer.FullName,

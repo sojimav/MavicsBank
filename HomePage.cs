@@ -40,7 +40,6 @@ namespace MavicsBank
                         _login.LogMeIn();
                     }
                                        
-                   // Selection(collectInput);
                 }
 
             }

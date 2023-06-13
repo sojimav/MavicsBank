@@ -41,6 +41,7 @@ namespace MavicsBank.Implementations.Account_Implementations
                 {
                     giver.AccountBal -= amountToTransfer;
                     receiver.AccountBal += amountToTransfer;
+
                     var givertransactionRecords = new Transactions
                     {
                         Id = loggedInCustomer.Id,
@@ -60,6 +61,7 @@ namespace MavicsBank.Implementations.Account_Implementations
                         Amount = amountToTransfer,
                         Balance = receiver.AccountBal
                     };
+                    _accHelper.CreateTransactionFile(receivertransactionRecords);
                     Console.WriteLine($"{amountToTransfer} has been successfully transfered to {receiver.Name}");
                 }
                 else

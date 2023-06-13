@@ -60,6 +60,7 @@ namespace MavicsBank.Implementations.Account_Implementations
             return Balance;
         }
 
+
         public static List<Account> ReadFromAccountFile(string filepath)
         {
             var AccountdetailsFromFile = new List<Account>();
@@ -94,10 +95,8 @@ namespace MavicsBank.Implementations.Account_Implementations
         {
             using (StreamWriter trans = new StreamWriter("Transaction.txt", true))
             {
-                trans.WriteLine($"|{transactions.Id}|{transactions.Name}|{transactions.TimeOfTransaction} | {transactions.Description} | {transactions.Amount} | {transactions.Balance} |");
+                trans.WriteLine($"| {transactions.Id} | {transactions.Name} | {transactions.TimeOfTransaction} | {transactions.Description} | {transactions.Amount} | {transactions.Balance} |\n\n");
             }
-
-            Console.WriteLine("Transaction sucessfully recorded!");
         }
     }
 }
