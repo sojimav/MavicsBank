@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "nhcnwRqEQxwAP3eQH95OY1CY4tYPIC5jW7uW7B6JTDW8sJHqo7rCmtazFpRz+mUF150T78NR55IBo60WF9IwOQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Decagon\\OneDrive\\Desktop\\MavicsBank\\MavicsBank.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Decagon\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\8.0.0-preview.4.23259.5\\microsoft.extensions.dependencyinjection.8.0.0-preview.4.23259.5.nupkg.sha512",
+    "C:\\Users\\Decagon\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.0-preview.4.23259.5\\microsoft.extensions.dependencyinjection.abstractions.8.0.0-preview.4.23259.5.nupkg.sha512"
+  ],
+  "logs": []
+}
