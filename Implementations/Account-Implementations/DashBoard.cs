@@ -7,6 +7,7 @@ using MavicsBank.Validations;
 using MavicsBank.Models.Customer_Model;
 using MavicsBank.Interfaces.Customer_Interface;
 using MavicsBank.Interfaces.Account_Interface;
+using MavicsBank.Implementations.Account_Implementations;
 
 namespace MavicsBank.Implementations.Customer_Implementations
 {
@@ -17,14 +18,20 @@ namespace MavicsBank.Implementations.Customer_Implementations
         private readonly IWithdraw _withdraw;
         private readonly ITransfer _transfer;
         private readonly ICheckBalance _checkBalance;
-        public DashBoard(ICreateAccount createAccount, IDeposit deposit, IWithdraw withdraw, ITransfer transfer, ICheckBalance checkBalance)
+        private readonly IAccountDetails _accountDetails;
+        public DashBoard(ICreateAccount createAccount, IDeposit deposit, IWithdraw withdraw,
+            ITransfer transfer, ICheckBalance checkBalance, IAccountDetails accountDetails)
         {
             _createAccount = createAccount;
             _deposit = deposit;
             _withdraw = withdraw;
             _transfer = transfer;
             _checkBalance = checkBalance;
+            _accountDetails = accountDetails;
         }
+      
+
+
         public void MyDashBoard(Customer loggedInCustomer)
         {
             Console.WriteLine($"Welcome {loggedInCustomer.FullName}!");
@@ -59,6 +66,11 @@ namespace MavicsBank.Implementations.Customer_Implementations
                 else if(choice == "5")
                 {
                     _checkBalance.CheckMyBalance(loggedInCustomer);
+                    MyDashBoard(loggedInCustomer);
+                }
+                else if( choice == "6")
+                {
+                    _accountDetails.DisplayAccountDetails(loggedInCustomer);
                     MyDashBoard(loggedInCustomer);
                 }
                
