@@ -16,12 +16,14 @@ namespace MavicsBank.Implementations.Customer_Implementations
         private readonly IDeposit _deposit;
         private readonly IWithdraw _withdraw;
         private readonly ITransfer _transfer;
-        public DashBoard(ICreateAccount createAccount, IDeposit deposit, IWithdraw withdraw, ITransfer transfer)
+        private readonly ICheckBalance _checkBalance;
+        public DashBoard(ICreateAccount createAccount, IDeposit deposit, IWithdraw withdraw, ITransfer transfer, ICheckBalance checkBalance)
         {
             _createAccount = createAccount;
             _deposit = deposit;
             _withdraw = withdraw;
             _transfer = transfer;
+            _checkBalance = checkBalance;
         }
         public void MyDashBoard(Customer loggedInCustomer)
         {
@@ -52,6 +54,11 @@ namespace MavicsBank.Implementations.Customer_Implementations
                 else if(choice == "4")
                 {
                     _transfer.TransferMoney(loggedInCustomer);
+                    MyDashBoard(loggedInCustomer);
+                }
+                else if(choice == "5")
+                {
+                    _checkBalance.CheckMyBalance(loggedInCustomer);
                     MyDashBoard(loggedInCustomer);
                 }
                

@@ -28,12 +28,11 @@ namespace MavicsBank.Implementations.Account_Implementations
 
             var giver = AllAccountsOfLoggedInPerson.FirstOrDefault(x => x.AccountNo == accountFrom);
             var receiver = accounts.FirstOrDefault(row => row.AccountNo == accountTo);
-            //var receiver = AllAccountsOfLoggedInPerson.FirstOrDefault(x => x.AccountNo == accountTo);
-
+           
             if (giver != null && receiver != null)
             {
                 if ((amountToTransfer <= giver.AccountBal && giver.AccountType.Trim() == "current")
-                    || (giver.AccountType.Trim() == "savings" && giver.AccountBal - amountToTransfer > 1000))
+                  || (giver.AccountType.Trim() == "savings" && giver.AccountBal - amountToTransfer > 1000))
                 {
                     giver.AccountBal -= amountToTransfer;
                     receiver.AccountBal += amountToTransfer;

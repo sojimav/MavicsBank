@@ -15,6 +15,7 @@ services.AddScoped<ICreateAccount, CreateAccount>();
 services.AddScoped<IDeposit, Deposit>();
 services.AddScoped<IWithdraw, Withdraw>();
 services.AddScoped<ITransfer, Transfer>();
+services.AddScoped<ICheckBalance, CheckBalance>();
 
 services.AddSingleton<HomePage>();
 var serviceProvider = services.BuildServiceProvider();
