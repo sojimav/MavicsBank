@@ -13,7 +13,8 @@ namespace MavicsBank.Implementations.Customer_Implementations
     {
 
         public void RegisterCustomer()
-        {
+        { 
+            Console.Clear();
             RegInstruction();
             var id = CustomerId();
             var fullName = FullName();

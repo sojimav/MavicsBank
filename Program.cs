@@ -18,11 +18,12 @@ services.AddScoped<ITransfer, Transfer>();
 services.AddScoped<ICheckBalance, CheckBalance>();
 services.AddScoped<IAccountDetails, AccountDetails>();
 services.AddScoped<IAccHelper, Acc_Helper>();
-services.AddSingleton<HomePage>();
 services.AddScoped<IStatementOfAccount, StatementOfAccount>();
+services.AddScoped<ILogout, Logout>();
 
 
+services.AddSingleton<HomePage>();
 var serviceProvider = services.BuildServiceProvider();
-var home =  serviceProvider.GetRequiredService<HomePage>();
-
+var home = serviceProvider.GetRequiredService<HomePage>();
 home.MyHomePage();
+

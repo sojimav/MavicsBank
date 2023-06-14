@@ -49,7 +49,8 @@ namespace MavicsBank.Implementations.Account_Implementations
                         TimeOfTransaction = DateTime.Now,
                         Description = $"transfered to {receiver.Name}",
                         Amount = amountToTransfer,
-                        Balance = giver.AccountBal
+                        Balance = giver.AccountBal,
+                        AccountNo = giver.AccountNo
                     };
                      _accHelper.CreateTransactionFile(givertransactionRecords);
                     var receivertransactionRecords = new Transactions
@@ -59,7 +60,8 @@ namespace MavicsBank.Implementations.Account_Implementations
                         TimeOfTransaction = DateTime.Now,
                         Description = $" received from {giver.Name}",
                         Amount = amountToTransfer,
-                        Balance = receiver.AccountBal
+                        Balance = receiver.AccountBal,
+                        AccountNo = receiver.AccountNo
                     };
                     _accHelper.CreateTransactionFile(receivertransactionRecords);
                     Console.WriteLine($"{amountToTransfer} has been successfully transfered to {receiver.Name}");

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MavicsBank.Models.Customer_Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +9,6 @@ namespace MavicsBank.Interfaces.Account_Interface
 {
     internal interface ILogout
     {
+        void LogoutCustomer(Customer loggedInCustomer);
     }
 }

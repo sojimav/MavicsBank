@@ -1,4 +1,6 @@
-|15979866|Ajibade Victor|13/06/2023 20:36:21 | deposit | 5000 | 10040 |
-|15979866|Ajibade Victor|13/06/2023 20:48:54 | transfered to Theo Elemu | 2000 | 8040 |
-| 13349080 | Theo Elemu | 13/06/2023 21:07:59 | transfered to Ajibade Victor | 2000 | 10000 |
-| 15979866 | Ajibade Victor | 13/06/2023 21:07:59 |  received from Theo Elemu | 2000 | 10040 |
+| 15979866 | Ajibade Victor | 14/06/2023 03:34:02 | deposit | 6000 | 11970 | 1920492989 |
+
+
+| 15979866 | Ajibade Victor | 14/06/2023 11:09:39 | deposit | 5000 | 16970 |
+
+

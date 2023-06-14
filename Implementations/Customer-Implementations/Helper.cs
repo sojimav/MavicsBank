@@ -1,4 +1,5 @@
 ﻿using MavicsBank.Models.Customer_Model;
+using MavicsBank.Validations;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,11 +8,10 @@ using System.Threading.Tasks;
 
 namespace MavicsBank.Implementations.Customer_Implementations
 {
-    internal class Helper
+    internal class Helper : HelperValidation
     {
        public static void LoginInstruction()
         {
-            Console.Clear();
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("Enter Login details (Email and Password!)\n");
             Console.ResetColor();
@@ -26,12 +26,21 @@ namespace MavicsBank.Implementations.Customer_Implementations
         public string FullName()
         {
             string fullName = "";
-            Console.Clear();
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("\nName must start with a Capital Letter!\n");
-            Console.ResetColor();
-            Console.Write("Enter Full Name:\n");
-            fullName = Console.ReadLine()!;
+            do
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("\nName must start with a Capital Letter!\n");
+                Console.ResetColor();
+                Console.Write("Enter Full Name:\n");
+                fullName = Console.ReadLine()!;
+
+                if (!FullNameValidation(fullName))
+                {
+                   Console.WriteLine("\u001b[31mEnter a Valid Name Format! e.g Ajibade Victor \u001b[0m"); 
+                }
+            }
+            while (!FullNameValidation(fullName));
+           
        
             return fullName;
         }
@@ -39,23 +48,43 @@ namespace MavicsBank.Implementations.Customer_Implementations
         public string Email()
         {
             string email = "";
-            Console.Clear();
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("\nEnter a Valid Email Format!\n");
-            Console.ResetColor();
-            email = Console.ReadLine()!;
+            do
+            { 
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("\nEnter a Valid Email Format! e.g mashayete@gmail.com\n");
+                Console.ResetColor();
+                email = Console.ReadLine()!;
+
+                if (!EmailValidation(email))
+                {
+                    Console.WriteLine("\u001b[31m Invalid Email Format! \u001b[0m");
+                }
+            } 
+            while (!EmailValidation(email));
+           
             return email;
         }
 
         public string Password()
         {
-            string password = "";       
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("\nPassword must be 6 character with at least 1 special charater and 1 digt!\n");
-            Console.ResetColor();
-            Console.Write("Create Your Password:\n");
-            password = Console.ReadLine()!;
-        
+            string password = ""; 
+            do
+            {              
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Password must have a special charater and a digt! e.g @adesoji1 \n");
+                Console.ResetColor();
+                Console.Write("Your Password:\n");
+                password = Console.ReadLine()!;
+
+                if (!PasswordValidation(password))
+                {
+                    Console.WriteLine("\u001b[31m Invaild Password format! \u001b[0m");
+                   
+                }
+
+            }while (!PasswordValidation(password));
+
+
             return password;
 
         }

@@ -31,16 +31,8 @@ namespace MavicsBank.Implementations.Account_Implementations
             }
             Console.WriteLine($" Account for {fullname} with Account no: {accNo} has been added to File.");
 
-
         }
 
-
-
-
-
-
-
     }
-      
-    
+        
 }

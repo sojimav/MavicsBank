@@ -80,8 +80,8 @@ namespace MavicsBank.Implementations.Account_Implementations
                             int accountNo = int.Parse(lines[3].Trim());
                             string accountType = lines[4].Trim();
                             decimal accountBal = decimal.Parse(lines[5].Trim());
-                            Account account = new Account(id,fullName,accountNo,accountType,accountBal);
-                            AccountdetailsFromFile.Add(account);       
+                            Account account = new Account(id, fullName, accountNo, accountType, accountBal);
+                            AccountdetailsFromFile.Add(account);
                         }
                     }
                 }

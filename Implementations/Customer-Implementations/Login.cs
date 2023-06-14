@@ -25,15 +25,15 @@ namespace MavicsBank.Implementations.Customer_Implementations
             var logginInCustormer = allCustomers.FirstOrDefault(x => x.Email == email && x.Password == password);
             if(logginInCustormer != null)
             {
-                Console.WriteLine("Congratulations! You have been logged in!");
+                Console.WriteLine("\u001b[32m Congratulations! You have been logged in! \u001b[0m"); 
                 _board.MyDashBoard(logginInCustormer);
             }
             else
             {
-                Console.WriteLine("Invalid Login Details!");
+               Console.WriteLine("\u001b[31m Invalid Login Details! \u001b[0m");
             }
-            
-            
+
+
         }
     }
 }

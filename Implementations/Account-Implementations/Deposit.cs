@@ -50,8 +50,9 @@ namespace MavicsBank.Implementations.Account_Implementations
                     TimeOfTransaction = DateTime.Now,
                     Description = "deposit",
                     Amount = amount,
-                    Balance = FetchRowToUpdate.AccountBal
-
+                    Balance = FetchRowToUpdate.AccountBal,
+                    AccountNo = FetchRowToUpdate.AccountNo
+                    
                 };
                 _accHelper.CreateTransactionFile(recordTransactions);
 

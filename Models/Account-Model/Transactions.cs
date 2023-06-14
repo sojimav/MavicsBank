@@ -13,7 +13,8 @@ namespace MavicsBank.Models.Account_Model
         public DateTime TimeOfTransaction { get; set; }
         public string Description { get; set; }
         public decimal Amount { get; set; } 
-        public decimal Balance { get; set; }
+        public decimal Balance { get; set; }    
+        public int AccountNo { get; set; }   
 
     }
 }
