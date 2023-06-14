@@ -12,7 +12,7 @@ namespace MavicsBank.Validations
         public static bool FullNameValidation(string fullname)
         {
             bool isValid = false;
-            Regex checkName = new Regex("^[A-Za-z\\s.'-]{2,30}$");
+            Regex checkName = new Regex("^[A-Z][a-z]{2,29}( [A-Z][a-z]{2,29})+$");
             if (checkName.IsMatch(fullname))
             {
                 isValid = true;
@@ -36,7 +36,7 @@ namespace MavicsBank.Validations
         public static bool PasswordValidation(string password)
         {
             bool isValid = false;
-            Regex passwordValidation = new Regex("^(?=.*[@#$%^&!])[a-zA-Z0-9@#$%^&!]{6,}$");
+            Regex passwordValidation = new Regex("^(?=.*\\d)(?=.*[@$!%*#?&])[A-Za-z\\d@$!%*#?&]{8,}$");
             if (passwordValidation.IsMatch(password))
             {
                 isValid = true;

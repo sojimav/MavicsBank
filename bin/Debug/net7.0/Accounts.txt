@@ -1,6 +1,12 @@
-|  15979866     | Ajibade Victor   | 1920492989         | current            | 16970      |
+|  12000208     | Ajibade Victor   | 1278253507         | savings            | 20         |
 
 
-|  13349080     | Theo Elemu       | 1028665202         | savings            | 10000      |
+|  12000208     | Ajibade Victor   | 1643294977         | current            | 0          |
+
+
+|  12000208     | Ajibade Victor   | 1779408215         | current            | 0          |
+
+
+|  12000208     | Ajibade Victor   | 1144873606         | savings            | 40         |
 
 

@@ -66,9 +66,7 @@ namespace MavicsBank.Implementations.Account_Implementations
             {
                 foreach(var account in accounts)
                 {
-                   writer.WriteLine($"|  {account.Id,-12} | {account.Name,-16} | {account.AccountNo,-18} | {account.AccountType,-18} | {account.AccountBal,-10} |\n\n");
-                    //Console.WriteLine($"Transaction has been update for {loggedInCustomer.FullName} with account No: {FetchRowToUpdate.AccountNo} in file");
-                    
+                   writer.WriteLine($"|  {account.Id,-12} | {account.Name,-16} | {account.AccountNo,-18} | {account.AccountType,-18} | {account.AccountBal,-10} |\n\n");    
                 }
                 
             }

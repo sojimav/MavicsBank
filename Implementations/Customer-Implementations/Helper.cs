@@ -12,15 +12,27 @@ namespace MavicsBank.Implementations.Customer_Implementations
     {
        public static void LoginInstruction()
         {
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("Enter Login details (Email and Password!)\n");
-            Console.ResetColor();
+            
+            //Console.WriteLine("Enter Login details (Email and Password!)\n");
+            Console.WriteLine("\u001b[34m Enter Login details (Email and Password!\u001b[0m");  // Blue color
         }
         public static void RegInstruction()
         {
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("\n Registration Portal\n");
-            Console.ResetColor();
+            Console.WriteLine("\n");
+            Console.WriteLine("\u001b[32m::::::::::::::::::::Registration Portal:::::::::::::::::::::\u001b[0m");
+            Console.WriteLine("\n");
+        }
+
+        public static void WelcomeToLogin()
+        {
+            Console.WriteLine("\n");
+            Console.WriteLine("\u001b[32m::::::::::::::::::::Login Portal:::::::::::::::::::::\u001b[0m");
+            Console.WriteLine("\n");
+        }
+
+        public static void CongratulateRegistrer(string name)
+        {
+            Console.WriteLine($"\u001b[32m Congrats! {name}, Registration Successful!\u001b[0m");
         }
 
         public string FullName()
@@ -28,6 +40,7 @@ namespace MavicsBank.Implementations.Customer_Implementations
             string fullName = "";
             do
             {
+               
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("\nName must start with a Capital Letter!\n");
                 Console.ResetColor();
@@ -51,7 +64,7 @@ namespace MavicsBank.Implementations.Customer_Implementations
             do
             { 
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("\nEnter a Valid Email Format! e.g mashayete@gmail.com\n");
+                Console.WriteLine("\nEnter an Email e.g mashayete@gmail.com\n");
                 Console.ResetColor();
                 email = Console.ReadLine()!;
 
@@ -69,12 +82,14 @@ namespace MavicsBank.Implementations.Customer_Implementations
         {
             string password = ""; 
             do
-            {              
+            {
+                Console.Clear();      
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Password must have a special charater and a digt! e.g @adesoji1 \n");
                 Console.ResetColor();
                 Console.Write("Your Password:\n");
                 password = Console.ReadLine()!;
+                Console.WriteLine("\n");
 
                 if (!PasswordValidation(password))
                 {

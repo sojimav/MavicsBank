@@ -6,11 +6,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MavicsBank.Interfaces.Account_Interface;
+using MavicsBank.Interfaces.Customer_Interface;
 
 namespace MavicsBank.Implementations.Account_Implementations
 {
     internal class Acc_Helper : IAccHelper
     {
+        private readonly IDashBoard _board;
+       
         public int AccountNo()
         {
             Random account = new Random();
@@ -23,11 +26,9 @@ namespace MavicsBank.Implementations.Account_Implementations
         {
             string accType = "";
             string readInput;
-            do
-            {
-                Console.Clear();
-                Console.WriteLine("Please Select Account Type \n");
-                Console.Write("Enter 1 for Savings Account or 2 for Current Account: ");
+            
+                Console.WriteLine("\u001b[34mSelect Account Type\u001b[0m\n");  // Blue color
+                Console.Write(">> 1 for Savings Account\n>> 2 for Current Account\n>> Any Value for DashBoard\n\nEnter Choice: ");
                 readInput = Console.ReadLine()!;
                 if (readInput == "1")
                 {
@@ -37,8 +38,7 @@ namespace MavicsBank.Implementations.Account_Implementations
                 {
                     accType = "current";
                 }
-            }
-            while (readInput != "1" && readInput != "2");
+               
             return accType;
         }
 

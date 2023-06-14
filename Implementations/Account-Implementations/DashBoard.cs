@@ -39,63 +39,73 @@ namespace MavicsBank.Implementations.Customer_Implementations
 
         public void MyDashBoard(Customer loggedInCustomer)
         {
-            Console.WriteLine($"Welcome {loggedInCustomer.FullName}!");
-            Console.Write(">>1: Create Account\n>>2: Deposit\n>>3: Withdrawal\n>>4: Transfer\n>>5: Check Balance\n>>6: " +
-                   "Display Account Details\n>>7: Get Account Statement\n>>8: Log Out\n>>Q: To Quit\n\nEnter Your Choice: ");
-            string choice = Console.ReadLine()!.ToUpper();
-
-            if (DashBoardValidation.DashBoardValid(choice.ToUpper()))
+            Console.Write("\n\nLoading\n\n");
+            for (int i = 0; i < 5; i++)
             {
+                Thread.Sleep(700);
+                Console.Write("-");
+            }
+            string choice;
+            do
+            {
+                Console.Clear();
+                Console.WriteLine($"\u001b[32m\nWelcome! {loggedInCustomer.FullName}.\n\u001b[0m"); // Green color
+                Console.Write(">>1: Create Account\n>>2: Deposit\n>>3: Withdrawal\n>>4: Transfer\n>>5: Check Balance\n>>6: " +
+                       "Display Account Details\n>>7: Get Account Statement\n>>8: Log Out\n>>Q: To Quit\n\nEnter Your Choice: ");
+                 choice = Console.ReadLine()!.ToUpper();
 
-                if(choice == "1")
-                { 
-                    _createAccount.CreateNewAccount(loggedInCustomer);
-                    MyDashBoard(loggedInCustomer);
+                if (DashBoardValidation.DashBoardValid(choice.ToUpper()))
+                {
+                    if (choice == "1")
+                    {
+                        _createAccount.CreateNewAccount(loggedInCustomer);
+                        MyDashBoard(loggedInCustomer);
+
+                    }
+                    else if (choice == "2")
+                    {
+                        _deposit.DepositMoney(loggedInCustomer);
+                        MyDashBoard(loggedInCustomer);
+                    }
+                    else if (choice == "3")
+                    {
+                        _withdraw.WithdrawMoney(loggedInCustomer);
+                        MyDashBoard(loggedInCustomer);
+                    }
+                    else if (choice == "4")
+                    {
+                        _transfer.TransferMoney(loggedInCustomer);
+                        MyDashBoard(loggedInCustomer);
+                    }
+                    else if (choice == "5")
+                    {
+                        _checkBalance.CheckMyBalance(loggedInCustomer);
+                        MyDashBoard(loggedInCustomer);
+                    }
+                    else if (choice == "6")
+                    {
+                        _accountDetails.DisplayAccountDetails(loggedInCustomer);
+                        MyDashBoard(loggedInCustomer);
+                    }
+                    else if (choice == "7")
+                    {
+                        _statementOfAccount.MyStatementOfAccount(loggedInCustomer);
+                        MyDashBoard(loggedInCustomer);
+                    }
+                    else if (choice == "8")
+                    {
+                        _logout.LogoutCustomer(loggedInCustomer);
+                    }
+                    else
+                    {
+                        Environment.Exit(0);
+                    }
 
                 }
-                else if(choice == "2")
-                {
-                    _deposit.DepositMoney(loggedInCustomer);
-                    MyDashBoard(loggedInCustomer);
-                }
-                else if(choice == "3")
-                {
-                    _withdraw.WithdrawMoney(loggedInCustomer);
-                    MyDashBoard(loggedInCustomer);
-                }
-                else if(choice == "4")
-                {
-                    _transfer.TransferMoney(loggedInCustomer);
-                    MyDashBoard(loggedInCustomer);
-                }
-                else if(choice == "5")
-                {
-                    _checkBalance.CheckMyBalance(loggedInCustomer);
-                    MyDashBoard(loggedInCustomer);
-                }
-                else if( choice == "6")
-                {
-                    _accountDetails.DisplayAccountDetails(loggedInCustomer);
-                    MyDashBoard(loggedInCustomer);
-                }
-                else if(choice == "7")
-                {
-                    _statementOfAccount.MyStatementOfAccount(loggedInCustomer);
-                    MyDashBoard(loggedInCustomer);
-                }
-                else if(choice == "8")
-                {
-                    _logout.LogoutCustomer(loggedInCustomer);
-                }
-                else
-                {
-                    Environment.Exit(0);
-                }           
+
+            }while(!DashBoardValidation.DashBoardValid(choice.ToUpper()));
+
 
             }
-           
-
-
-        }
     }
 }

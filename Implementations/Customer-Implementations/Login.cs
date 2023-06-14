@@ -17,6 +17,8 @@ namespace MavicsBank.Implementations.Customer_Implementations
 
         public void LogMeIn()
         {
+            Console.Clear();
+            WelcomeToLogin();
             var allCustomers = ReadFromFile("Customers.txt");
             LoginInstruction();
            var email =  Email();
