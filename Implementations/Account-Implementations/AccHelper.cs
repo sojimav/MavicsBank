@@ -33,7 +33,6 @@ namespace MavicsBank.Implementations.Account_Implementations
             return getAccoutNo;
         }
 
-
         public int AccountNo()
         {
             Random account = new Random();

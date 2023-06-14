@@ -25,7 +25,6 @@ namespace MavicsBank
             string collectInput;
             do
             {
-                //Console.Clear();
                 Console.WriteLine("\nWelcome to Mavics Bank\n");
                 Console.Write(">>Press 1 to Register\n>>Press 2 to Login\n>> or Q to Exit: ");
                 collectInput = Console.ReadLine()!;

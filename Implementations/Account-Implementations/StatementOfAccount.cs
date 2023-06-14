@@ -14,6 +14,11 @@ namespace MavicsBank.Implementations.Account_Implementations
 {
     internal class StatementOfAccount : IStatementOfAccount
     {
+        private readonly IAccHelper _accHelper;
+        public StatementOfAccount(IAccHelper accHelper)
+        {
+            _accHelper = accHelper;
+        }
         public void MyStatementOfAccount(Customer loggedInCustomer)
         {
             string display = "";
@@ -38,19 +43,17 @@ namespace MavicsBank.Implementations.Account_Implementations
                 Console.WriteLine("|-----------------------------------------------------------------------------------|");
             }
             else
-            {
-                Console.WriteLine("Account Number does not exist!");
+            {             
+                Console.WriteLine("\u001b[31m No Transaction Recorded for this Account!\u001b[0m");   // Red color
             }
-            
+
 
         }
 
         public int AccountNo()
         {
-            Console.WriteLine("Enter account no: ");
-            string accountNo = Console.ReadLine();
-            int validAccount = int.Parse(accountNo);
-
+            var validAccount  = _accHelper.EnterAccountNoTo("CHECK STATEMENT");
+            string accountNo = Console.ReadLine();            
             return validAccount;
         }
 

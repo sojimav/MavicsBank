@@ -35,8 +35,6 @@ namespace MavicsBank.Implementations.Customer_Implementations
             _logout = logout;
         }
 
-
-
         public void MyDashBoard(Customer loggedInCustomer)
         {
             Console.Write("\n\nLoading\n\n");

@@ -55,14 +55,14 @@ namespace MavicsBank.Implementations.Account_Implementations
                 }
                 else
                 {
-                    Console.WriteLine($"Insufficient Amount, you only have {giver.AccountBal} in your account");
+                   Console.WriteLine($"\u001b[31mInsufficient Amount, you only have {giver.AccountBal} in your account\u001b[0m");   // Red color
                 }
             }
             else
             {
-                Console.WriteLine("Error in Transaction! Wrong account Number!");
+                Console.WriteLine("\u001b[31m Error in Transaction! Wrong account Number! \u001b[0m");   // Red color
             }
-   
+
 
         }
     }

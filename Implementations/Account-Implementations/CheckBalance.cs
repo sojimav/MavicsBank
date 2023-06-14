@@ -11,14 +11,19 @@ namespace MavicsBank.Implementations.Account_Implementations
 {
     internal class CheckBalance : ICheckBalance
     {
+        private readonly IAccHelper _accHelper;
+
+        public CheckBalance(IAccHelper accHelper)
+        {
+            _accHelper = accHelper;
+        }
+
         public void CheckMyBalance(Customer loggedInCustomer)
         {
             List<Account> accounts = Acc_Helper.ReadFromAccountFile("Accounts.txt");
 
-
-            Console.Write("Enter account number to CHECK BALANCE: ");
-            var accountNo = decimal.Parse(Console.ReadLine());
-
+            var accountNo = _accHelper.EnterAccountNoTo("CHECK ACCOUNT BALANCE");
+           
             var AllAccountsOfLoggedInPerson = accounts.Where(accRows => accRows.Id == loggedInCustomer.Id).ToList();
             var FetchRowToCheck = AllAccountsOfLoggedInPerson.FirstOrDefault(x => x.AccountNo == accountNo);
 
