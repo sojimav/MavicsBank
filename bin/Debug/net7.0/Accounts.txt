@@ -1,12 +1,6 @@
-|  12000208     | Ajibade Victor   | 1278253507         | savings            | 20         |
+|  12000208     | Ajibade Victor   | 1496588922         | current            | 4000       |
 
 
-|  12000208     | Ajibade Victor   | 1643294977         | current            | 0          |
-
-
-|  12000208     | Ajibade Victor   | 1779408215         | current            | 0          |
-
-
-|  12000208     | Ajibade Victor   | 1144873606         | savings            | 40         |
+|  12000208     | Ajibade Victor   | 1193754112         | savings            | 3990       |
 
 

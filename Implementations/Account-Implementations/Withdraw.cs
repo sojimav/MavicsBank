@@ -21,18 +21,11 @@ namespace MavicsBank.Implementations.Account_Implementations
         {
             List<Account> accounts = Acc_Helper.ReadFromAccountFile("Accounts.txt");
 
-
-            Console.WriteLine("Enter Amount to Withdraw: ");
-            decimal amount = decimal.Parse(Console.ReadLine());
-
-            int getAccoutNo;
-            Console.Write("Enter the Account Number to Withdraw from: ");
-            getAccoutNo = int.Parse(Console.ReadLine());
-            Console.WriteLine();
-
+            decimal amount = _accHelper.EnterAmountTo("withdraw");
+            int getAccountNo = _accHelper.EnterAccountNoTo("withdraw from");
+        
             var AllAccountsOfLoggedInPerson = accounts.Where(accRows => accRows.Id == loggedInCustomer.Id).ToList();
-
-            var FetchRowToUpdate = AllAccountsOfLoggedInPerson.FirstOrDefault(x => x.AccountNo == getAccoutNo);
+            var FetchRowToUpdate = AllAccountsOfLoggedInPerson.FirstOrDefault(x => x.AccountNo == getAccountNo);
 
             if (FetchRowToUpdate != null)
             {                
@@ -40,7 +33,9 @@ namespace MavicsBank.Implementations.Account_Implementations
                     || (FetchRowToUpdate.AccountType.Trim() == "savings" && FetchRowToUpdate.AccountBal - amount > 1000))     
                 {
                     FetchRowToUpdate.AccountBal -= amount;
-                    Console.WriteLine($"{amount} has been successfully withdrawn from your account : {getAccoutNo}");
+                    Console.WriteLine($"{amount} has been successfully withdrawn from your account : {getAccountNo}");
+                    _accHelper.CreateAndWriteToAccountFile("Accounts.txt", accounts, loggedInCustomer);
+
                     var transaction = new Transactions
                     {
                         Id = loggedInCustomer.Id,
@@ -49,9 +44,9 @@ namespace MavicsBank.Implementations.Account_Implementations
                         Description = "withdrawal",
                         Amount = amount,
                         Balance = FetchRowToUpdate.AccountBal,
-                        AccountNo = FetchRowToUpdate.AccountNo
-                        
+                        AccountNo = FetchRowToUpdate.AccountNo                     
                     };
+
                     _accHelper.CreateTransactionFile(transaction); 
                 }
                 
@@ -65,16 +60,7 @@ namespace MavicsBank.Implementations.Account_Implementations
             {
                 Console.WriteLine("Account Number does not exist!");
             }
-
-            using (StreamWriter writer = new StreamWriter("Accounts.txt", false))
-            {
-                foreach (var account in accounts)
-                {
-                    writer.WriteLine($"|  {account.Id,-12} | {account.Name,-16} | {account.AccountNo,-18} | {account.AccountType,-18} | {account.AccountBal,-10} |\n\n");
-                    
-                }
-                Console.WriteLine($"Transaction has been update for {loggedInCustomer.FullName} in file");
-            }
+         
 
         }
     }

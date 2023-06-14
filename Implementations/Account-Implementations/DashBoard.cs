@@ -42,7 +42,7 @@ namespace MavicsBank.Implementations.Customer_Implementations
             Console.Write("\n\nLoading\n\n");
             for (int i = 0; i < 5; i++)
             {
-                Thread.Sleep(700);
+                Thread.Sleep(400);
                 Console.Write("-");
             }
             string choice;

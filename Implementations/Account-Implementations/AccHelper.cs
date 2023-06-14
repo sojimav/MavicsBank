@@ -12,8 +12,28 @@ namespace MavicsBank.Implementations.Account_Implementations
 {
     internal class Acc_Helper : IAccHelper
     {
-        private readonly IDashBoard _board;
        
+        public decimal EnterAmountTo(string action)
+        {
+            decimal validAmount;
+            Console.WriteLine($"Enter Amount to {action}");
+            string amount = Console.ReadLine();
+            decimal.TryParse(amount, out validAmount);
+
+            return validAmount;
+        }
+
+        public int EnterAccountNoTo(string action)
+        {
+            int getAccoutNo;
+            Console.Write($"Enter the Account Number to {action}: ");
+            string accountNo = Console.ReadLine();
+            int.TryParse(accountNo, out getAccoutNo);
+
+            return getAccoutNo;
+        }
+
+
         public int AccountNo()
         {
             Random account = new Random();
@@ -53,8 +73,9 @@ namespace MavicsBank.Implementations.Account_Implementations
             else if (accTy == "savings")
             {
                 Console.Write($"Please enter an amount not less than 1000>>");
-                var bal = Console.ReadLine();
-                Balance = Convert.ToDecimal(bal);
+                string bal = Console.ReadLine();
+                 decimal.TryParse(bal, out Balance);
+                
             }
 
             return Balance;
@@ -95,7 +116,24 @@ namespace MavicsBank.Implementations.Account_Implementations
         {
             using (StreamWriter trans = new StreamWriter("Transaction.txt", true))
             {
-                trans.WriteLine($"| {transactions.Id} | {transactions.Name} | {transactions.TimeOfTransaction} | {transactions.Description} | {transactions.Amount} | {transactions.Balance} |\n\n");
+                trans.WriteLine($"| {transactions.Id} | {transactions.Name} | {transactions.TimeOfTransaction} " +
+                    $"| {transactions.Description} | {transactions.Amount} | {transactions.Balance} |{transactions.AccountNo} |\n\n");
+            }
+        }
+
+
+        public void CreateAndWriteToAccountFile(string filePath, List<Account> accounts, Customer loggedInCustomer)
+        {
+            
+            using (StreamWriter writer = new StreamWriter(filePath, false))
+            {
+                foreach (var account in accounts)
+                {
+                    writer.WriteLine($"|  {account.Id,-12} | {account.Name,-16} | {account.AccountNo,-18} |" +
+                        $" {account.AccountType,-18} | {account.AccountBal,-10} |\n\n");
+
+                }
+                Console.WriteLine($"Transaction has been updated for {loggedInCustomer.FullName} in file");
             }
         }
     }

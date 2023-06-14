@@ -20,17 +20,11 @@ namespace MavicsBank.Implementations.Account_Implementations
         {
             List<Account> accounts = Acc_Helper.ReadFromAccountFile("Accounts.txt");
 
-            Console.Write("Enter account to transfer from: ");
-            var accountFrom = int.Parse(Console.ReadLine());
-
-            Console.Write("Enter account to transfer to: ");
-            var accountTo = int.Parse(Console.ReadLine());
-
-            Console.Write("Enter amount to transfer: ");
-            var amountToTransfer = decimal.Parse(Console.ReadLine());
-
-            var AllAccountsOfLoggedInPerson = accounts.Where(accRows => accRows.Id == loggedInCustomer.Id).ToList();
-
+           var accountFrom =  _accHelper.EnterAccountNoTo("transfer from");       
+           var accountTo = _accHelper.EnterAccountNoTo("tranfer to");
+           var amountToTransfer =  _accHelper.EnterAmountTo("transfer");
+           
+           var AllAccountsOfLoggedInPerson = accounts.Where(accRows => accRows.Id == loggedInCustomer.Id).ToList();
             var giver = AllAccountsOfLoggedInPerson.FirstOrDefault(x => x.AccountNo == accountFrom);
             var receiver = accounts.FirstOrDefault(row => row.AccountNo == accountTo);
            
@@ -41,30 +35,23 @@ namespace MavicsBank.Implementations.Account_Implementations
                 {
                     giver.AccountBal -= amountToTransfer;
                     receiver.AccountBal += amountToTransfer;
-
+                    Console.WriteLine($"{amountToTransfer} has been successfully transfered to {receiver.Name}");
+                    _accHelper.CreateAndWriteToAccountFile("Accounts.txt", accounts, loggedInCustomer);
+                 
                     var givertransactionRecords = new Transactions
                     {
-                        Id = loggedInCustomer.Id,
-                        Name = giver.Name,
-                        TimeOfTransaction = DateTime.Now,
-                        Description = $"transfered to {receiver.Name}",
-                        Amount = amountToTransfer,
-                        Balance = giver.AccountBal,
-                        AccountNo = giver.AccountNo
+                        Id = loggedInCustomer.Id, Name = giver.Name, TimeOfTransaction = DateTime.Now, Description = $"transfered to {receiver.Name}",
+                        Amount = amountToTransfer, Balance = giver.AccountBal, AccountNo = giver.AccountNo
                     };
                      _accHelper.CreateTransactionFile(givertransactionRecords);
+
                     var receivertransactionRecords = new Transactions
                     {
-                        Id = receiver.Id,
-                        Name = receiver.Name,
-                        TimeOfTransaction = DateTime.Now,
-                        Description = $" received from {giver.Name}",
-                        Amount = amountToTransfer,
-                        Balance = receiver.AccountBal,
-                        AccountNo = receiver.AccountNo
+                        Id = receiver.Id, Name = receiver.Name, TimeOfTransaction = DateTime.Now, Description = $" received from {giver.Name}",
+                        Amount = amountToTransfer,  Balance = receiver.AccountBal, AccountNo = receiver.AccountNo
                     };
                     _accHelper.CreateTransactionFile(receivertransactionRecords);
-                    Console.WriteLine($"{amountToTransfer} has been successfully transfered to {receiver.Name}");
+                  
                 }
                 else
                 {
@@ -75,17 +62,7 @@ namespace MavicsBank.Implementations.Account_Implementations
             {
                 Console.WriteLine("Error in Transaction! Wrong account Number!");
             }
-
-            using (StreamWriter writer = new StreamWriter("Accounts.txt", false))
-            {
-                foreach (var account in accounts)
-                {
-                    writer.WriteLine($"|  {account.Id,-12} | {account.Name,-16} | {account.AccountNo,-18} | {account.AccountType,-18} | {account.AccountBal,-10} |\n\n");
-
-                }
-                if (receiver != null)
-                    Console.WriteLine($"Transaction has been update for {loggedInCustomer.FullName} and {receiver.Name} in file");
-            }
+   
 
         }
     }

@@ -1,0 +1,30 @@
+| 12000208 | Ajibade Victor | 14/06/2023 18:24:32 | deposit | 5000 | 6000 |
+
+
+| 12000208 | Ajibade Victor | 14/06/2023 18:25:21 | deposit | 4000 | 4000 |
+
+
+| 12000208 | Ajibade Victor | 14/06/2023 19:33:00 | deposit | 5000 | 5000 |
+
+
+| 12000208 | Ajibade Victor | 14/06/2023 19:34:55 | deposit | 4000 | 5000 |
+
+
+| 12000208 | Ajibade Victor | 14/06/2023 19:35:39 | deposit | 90 | 5090 |
+
+
+| 12000208 | Ajibade Victor | 14/06/2023 19:44:01 | withdrawal | 2000 | 3090 |
+
+
+| 12000208 | Ajibade Victor | 14/06/2023 20:25:56 | withdrawal | 90 | 3000 |
+
+
+| 12000208 | Ajibade Victor | 14/06/2023 20:27:47 | withdrawal | 10 | 2990 |
+
+
+| 12000208 | Ajibade Victor | 14/06/2023 20:28:55 | transfered to Ajibade Victor | 1000 | 4000 |
+
+
+| 12000208 | Ajibade Victor | 14/06/2023 20:28:55 |  received from Ajibade Victor | 1000 | 3990 |
+
+

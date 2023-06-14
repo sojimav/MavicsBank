@@ -19,14 +19,14 @@ namespace MavicsBank.Implementations.Customer_Implementations
         public static void RegInstruction()
         {
             Console.WriteLine("\n");
-            Console.WriteLine("\u001b[32m::::::::::::::::::::Registration Portal:::::::::::::::::::::\u001b[0m");
+            Console.WriteLine("\u001b[32m:::REGISTRATION PORTAL:::::\u001b[0m");
             Console.WriteLine("\n");
         }
 
         public static void WelcomeToLogin()
         {
             Console.WriteLine("\n");
-            Console.WriteLine("\u001b[32m::::::::::::::::::::Login Portal:::::::::::::::::::::\u001b[0m");
+            Console.WriteLine("\u001b[32m:::LOGIN PORTAL::::::\u001b[0m");
             Console.WriteLine("\n");
         }
 
