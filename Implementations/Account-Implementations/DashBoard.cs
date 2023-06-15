@@ -55,7 +55,7 @@ namespace MavicsBank.Implementations.Customer_Implementations
                 if (DashBoardValidation.DashBoardValid(choice.ToUpper()))
                 {
                     if (choice == "1")
-                    {
+                    {                  
                         _createAccount.CreateNewAccount(loggedInCustomer);
                         MyDashBoard(loggedInCustomer);
 

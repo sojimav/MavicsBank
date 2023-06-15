@@ -14,6 +14,7 @@ namespace MavicsBank.Implementations.Customer_Implementations
         public void LogoutCustomer(Customer loggedInCustomer)
         {
             loggedInCustomer = null;
+
             Console.WriteLine("Logged Out!");
             
         }

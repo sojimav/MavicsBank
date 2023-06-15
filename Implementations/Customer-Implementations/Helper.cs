@@ -14,7 +14,7 @@ namespace MavicsBank.Implementations.Customer_Implementations
         {
             
             //Console.WriteLine("Enter Login details (Email and Password!)\n");
-            Console.WriteLine("\u001b[34m Enter Login details (Email and Password!\u001b[0m");  // Blue color
+            Console.WriteLine("\u001b[34m Enter Login details\u001b[0m");  // Blue color
         }
         public static void RegInstruction()
         {
@@ -64,7 +64,7 @@ namespace MavicsBank.Implementations.Customer_Implementations
             do
             { 
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("\nEnter an Email e.g mashayete@gmail.com\n");
+                Console.WriteLine("\nEnter Email (mashayete@gmail.com)\n");
                 Console.ResetColor();
                 email = Console.ReadLine()!;
 
@@ -87,7 +87,7 @@ namespace MavicsBank.Implementations.Customer_Implementations
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Password must have a special charater and a digt! e.g @adesoji1 \n");
                 Console.ResetColor();
-                Console.Write("Your Password:\n");
+                Console.Write("Enter Password:\n");
                 password = Console.ReadLine()!;
                 Console.WriteLine("\n");
 
