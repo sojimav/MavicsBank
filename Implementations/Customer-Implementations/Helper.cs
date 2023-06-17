@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MavicsBank.Implementations.Customer_Implementations
 {
-    internal class Helper : HelperValidation
+    public class Helper : HelperValidation
     {
        public static void LoginInstruction()
         {

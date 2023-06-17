@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MavicsBank.Models.Customer_Model
 {
-    internal class Customer
+    public class Customer
     {
         public Customer(int id, string fullName, string email, string password)
         {
