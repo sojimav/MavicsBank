@@ -13,7 +13,7 @@ namespace MavicsBank.Implementations.Customer_Implementations
     internal class Register : Helper, IRegister
     {
 
-        public void RegisterCustomer()
+        public void  RegisterCustomer()
         {
             Console.Clear();
             RegInstruction();

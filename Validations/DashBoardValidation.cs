@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MavicsBank.Validations
 {
-    internal class DashBoardValidation
+    public class DashBoardValidation
     {
         public static bool DashBoardValid(string value)
         {

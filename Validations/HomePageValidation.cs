@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MavicsBank.Validations
 {
-    internal class HomePageValidation
+    public class HomePageValidation
     {
         public static bool InitialPromptValidation(string userInput)
         {

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MavicsBank.Validations
 {
-    internal class HelperValidation
+    public class HelperValidation
     {
         public static bool FullNameValidation(string fullname)
         {

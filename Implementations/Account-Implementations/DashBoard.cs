@@ -38,11 +38,11 @@ namespace MavicsBank.Implementations.Customer_Implementations
         public void MyDashBoard(Customer loggedInCustomer)
         {
             Console.Write("\n\nLoading\n\n");
-            for (int i = 0; i < 5; i++)
-            {
-                Thread.Sleep(400);
-                Console.Write("-");
-            }
+            //for (int i = 0; i < 5; i++)
+            //{
+            //    Thread.Sleep(400);
+            //    Console.Write("-");
+            //}
             string choice;
             do
             {
